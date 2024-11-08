@@ -2,7 +2,7 @@
 
 Para configurar todo, temos que primeiro crear un arquivo, onde crear a docker-compose.yml, os ficheiros de configuración e os arquivos de zonas. 
 
-## docker-compose.yml
+## Docker-compose.yml
 
 Unha vez feito, podemos empezar a crear os ficheiros, e no me caso empecei co docker-compose.yml:
 
@@ -51,7 +51,7 @@ No cliente, definimoslle una imaxe alpine, ademáis coas opciones 'tty' e 'stdin
 
 Finalemente, definin a red empregada, neste caso como tipo bridge, e fixen o seguinte: definin o rango de Ip en 172.30.8.0/26, coa ip_range limite as IP asignables a un rango específico, neste caso 172.30.8.0/24; e por ultimo definin a IP gateway en 172.30.8.254.
 
-## arquivos de configuración
+## Arquivos de configuración
 
 Dentro da carpeta chamada 'config', debemos crear dos ficherios:
 
@@ -83,7 +83,7 @@ options {
 };
 ```
 
-## arquivo de zonas 
+## Arquivo de zonas 
 
 ### db.asircastelao
 
