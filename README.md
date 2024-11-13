@@ -69,12 +69,14 @@ zone "asircastelao.com" {
 
 ### named.conf.options
 
+Neste arquivo poñemos o seguinte para cumplir os requisitos:
+
 ```
 options {
     directory "/var/cache/bind";
     recursion yes;                      # Permitir la resolución recursiva
     allow-query { any; };               # Permitir consultas desde cualquier IP
-    dnssec-validation no;
+    dnssec-validation no;               # Permitir realizar apk update sin problemas
     forwarders {
         8.8.8.8;                        # Google DNS
         1.1.1.1;                        # Cloudflare DNS
@@ -119,9 +121,9 @@ texto       IN      TXT     "Este es un registro de texto para asircastelao.com"
 
 Agora que xa fixemos os documentos, necesitamos arrincar o servidor, co comando 'docker compose up -d', o que nos permite iniciar o servidor pero tendo disponible a terminal. Agora necesitamos arrincar o cliente, que se fai co comando 'docker exec -it cliente2 /bin/sh', e xa entramos na terminal do cliente.
 
-Nesta terminal, necesitamos descargar dig, onde primeiro empreguei o comando 'apk update', empregamos apk porque estamos nunha imaxe alpine, e finalmente o comando 'apk add --update bind-tools' para instalar o dig.
+Nesta terminal, necesitamos descargar dig, onde primeiro empreguei o comando `apk update`, empregamos apk porque estamos nunha imaxe alpine, e finalmente o comando `apk add --update bind-tools` para instalar o dig.
 
-Finalemente, co dig disponible, empregamos o comando 'dig @172.30.8.1 ejemplo.asircastelao.inet' e observaremos o seguinte, o que significa que todo funcionou correctamente
+Finalemente, co dig disponible, empregamos o comando `dig @172.30.8.1 ejemplo.asircastelao.inet` e observaremos o seguinte, o que significa que todo funcionou correctamente
 
 ```
 ; <<>> DiG 9.18.27 <<>> @172.30.8.1 ejemplo.asircastelao.inet
