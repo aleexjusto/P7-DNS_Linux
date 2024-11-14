@@ -97,23 +97,40 @@ include "/etc/bind/named.conf.local";
 
 ## Arquivo de zonas 
 
-### db.asircastelao
+### db.asircastelao.int
+
+Neste documento debemos por o seguinte:
 
 ```
-$TTL    604800
-<<<<<<< HEAD
+$TTL    604800              ; TTL (Time To Live) predeterminado en segundos
+
 @       IN      SOA     ns.asircastelao.int. admin.asircastelao.int. (
-                        2         ; Serial
-                        604800    ; Refresh
-                        86400     ; Retry
-                        2419200   ; Expire
-                        604800 )  ; Negative Cache TTL
+                        2         ; Serial: número de serie del archivo de zona.
+
+                        604800    ; Refresh: intervalo de actualización en segundos 
+
+                        86400     ; Retry: tiempo de reintento en segundos (24 horas).
+
+                        2419200   ; Expire: tiempo de expiración en segundos 
+
+                        604800 )  ; Negative Cache TTL: tiempo en segundos para almacenar en caché las respuestas negativas
 
 @       IN      NS      ns.asircastelao.int.
+                            ; Define el servidor de nombres (NS) para la zona asircastelao.int, en este caso, "ns.asircastelao.int."
+
 ns       IN      A       172.30.8.1
+                            ; Registro A que asigna la IP 172.30.8.1 al nombre "ns.asircastelao.int", indicando la dirección del servidor de nombres.
+
 test    IN      A       172.30.8.4
+                            ; Define un subdominio "test.asircastelao.int" y le asigna la IP 172.30.8.4.
+
 alias   IN      CNAME   web.asircastelao.com.
+                            ; Define un alias (CNAME) "alias.asircastelao.int" que apunta a "web.asircastelao.com".
+                            ; CNAME crea un alias de dominio, redirigiendo consultas automáticamente al dominio apuntado.
+
 texto       IN      TXT     "Este es un registro de texto para asircastelao.com"
+                            ; Registro de texto (TXT) para "texto.asircastelao.int" con la descripción
+
 ```
 
 
