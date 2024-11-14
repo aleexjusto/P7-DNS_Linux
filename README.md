@@ -45,7 +45,7 @@ networks:
           gateway: 172.30.8.254
 ```
 
-Como observamos, no noso servidor chamado justoserver fixen o seguinte: empregamos una imaxe bind9.18; definin os portos tcp e udp; asignei unha red personalizada que eu definin,neste caso 172.30.8.2; e engadimos os volumes, que son os arquivos que máis adiante configuraremos. 
+Como observamos, no noso servidor chamado justoserver fixen o seguinte: empregamos una imaxe bind9.18; definin os portos tcp e udp; asignei unha red personalizada que eu definin,neste caso 172.30.8.1; e engadimos os volumes, que son os arquivos que máis adiante configuraremos. 
 
 No cliente, definimoslle una imaxe alpine, ademáis coas opciones 'tty' e 'stdin_open' permitimos que teña unha terminal, e finalemnte definimos a red DNS coa IP do servidor e definimos a IP fixa do cliente, neste caso 172.30.8.2.
 
@@ -60,7 +60,7 @@ Dentro da carpeta chamada 'config', debemos crear tres ficherios:
 Neste ficheiro, engadimos o seguinte:
 
 ```
-zone "asircastelao.com" {
+zone "asircastelao.int" {
     type master;
     file "/etc/bind/db.asircastelao.com";   # Archivo con los registros DNS de la zona
 };
